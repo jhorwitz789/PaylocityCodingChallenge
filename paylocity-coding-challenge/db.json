@@ -1,0 +1,22 @@
+{
+  "people": [
+    {
+      "id": 1,
+      "name": "Jared Horwitz",
+      "benefitCost": 1000,
+      "type": 0
+    },
+    {
+      "id": 2,
+      "name": "Steve Rogers",
+      "benefitCost": 500,
+      "type": 1
+    },
+    {
+      "id": 3,
+      "name": "Anthony Stark",
+      "benefitCost": 450,
+      "type": 1
+    }
+  ]
+}

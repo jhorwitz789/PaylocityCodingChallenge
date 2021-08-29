@@ -1,0 +1,18 @@
+<form class="add-form" (ngSubmit)="onSubmit()">
+    <div class="form-control">
+        <label for="name">Name</label>
+        <input type="text" name="name" [(ngModel)]="name" id="name" placeholder="Add Person">
+    </div>
+    <div class="form-control-radio">
+        <label for="type">Employee or Dependent?</label>
+        <div>
+            <input type="radio" id="employee" value="0" name="type" [(ngModel)]="type">
+            <label for="employee">Employee</label>
+        </div>
+        <div>
+            <input type="radio" id="dependent" value="1" name="type" [(ngModel)]="type">
+            <label for="dependent">Dependent</label>
+        </div>
+    </div>
+    <input type="submit" value="Save Person" class="btn btn-block">
+</form>
