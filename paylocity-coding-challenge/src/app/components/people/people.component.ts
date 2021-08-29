@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PersonService } from "../../services/person.service"
 import { Person } from "../../Person";
+import { CostSummaryComponent } from "../cost-summary/cost-summary.component"
 
 @Component({
   selector: 'app-people',
@@ -8,6 +9,7 @@ import { Person } from "../../Person";
   styleUrls: ['./people.component.css']
 })
 export class PeopleComponent implements OnInit {
+  @ViewChild(CostSummaryComponent) costSummaryChild!: CostSummaryComponent;
   people: Person[] = [];
 
   constructor(private personService: PersonService) { }
@@ -17,10 +19,16 @@ export class PeopleComponent implements OnInit {
   }
 
   deletePerson(person: Person) {
-    this.personService.deletePerson(person).subscribe(() => (this.people = this.people.filter((p) => p.id !== person.id)));
+    this.personService.deletePerson(person).subscribe(() => {
+      (this.people = this.people.filter((p) => p.id !== person.id))
+      this.costSummaryChild.calculateAmounts();
+    });
   }
 
   addPerson(person: Person) {
-    this.personService.addPerson(person).subscribe((person) => (this.people.push(person)))
+    this.personService.addPerson(person).subscribe((person) => {
+      (this.people.push(person))
+      this.costSummaryChild.calculateAmounts();
+    });
   }
 }

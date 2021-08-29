@@ -10,6 +10,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { PeopleComponent } from './components/people/people.component';
 import { PersonComponent } from './components/person/person.component';
 import { AddPersonComponent } from './components/add-person/add-person.component';
+import { CostSummaryComponent } from './components/cost-summary/cost-summary.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AddPersonComponent } from './components/add-person/add-person.component
     ButtonComponent,
     PeopleComponent,
     PersonComponent,
-    AddPersonComponent
+    AddPersonComponent,
+    CostSummaryComponent
   ],
   imports: [
     BrowserModule,

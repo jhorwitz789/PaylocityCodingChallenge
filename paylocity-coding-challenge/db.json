@@ -1,34 +1,10 @@
 {
   "people": [
     {
-      "id": 1,
-      "name": "Jared Horwitz",
-      "benefitCost": 1000,
-      "type": 0
-    },
-    {
-      "id": 2,
-      "name": "Steve Rogers",
-      "benefitCost": 500,
-      "type": 1
-    },
-    {
-      "name": "Amadeus Cho",
+      "name": "Anthony Stark",
       "type": "0",
       "benefitCost": 900,
-      "id": 4
-    },
-    {
-      "name": "Hank Pym",
-      "type": "1",
-      "benefitCost": 500,
-      "id": 5
-    },
-    {
-      "name": "Anthony Stark",
-      "type": "1",
-      "benefitCost": 450,
-      "id": 6
+      "id": 1
     }
   ]
 }

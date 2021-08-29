@@ -11,6 +11,7 @@ import { Subscription } from "rxjs";
 })
 export class AddPersonComponent implements OnInit {
   @Output() onAddPerson: EventEmitter<Person> = new EventEmitter();
+  @Output() onAddRecalculate: EventEmitter<Person> = new EventEmitter();
   name!: string;
   type: PersonType = PersonType.employee;
   hasDiscount: Boolean = false;
@@ -39,6 +40,7 @@ export class AddPersonComponent implements OnInit {
     }
 
     this.onAddPerson.emit(newPerson);
+    this.onAddRecalculate.emit();
 
     this.name = "";
     this.type = PersonType.employee;
