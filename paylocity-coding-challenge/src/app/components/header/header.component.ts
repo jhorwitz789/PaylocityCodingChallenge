@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from "../../services/ui.service"
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -6,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  showAddPerson!: boolean;
+  subscription!: Subscription;
   title: string = 'Benefits Calculator';
-  constructor() { }
+
+  constructor(private uiService: UiService) { 
+    this.subscription = this.uiService.onToggle().subscribe(value => this.showAddPerson = value);
+  }
 
   ngOnInit(): void {}
 
-  toggleAddDependent() {
-    console.log('toggle');
+  toggleAddPerson() {
+    this.uiService.toggleAddPerson();
   }
 }
