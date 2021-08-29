@@ -31,8 +31,8 @@ export class AddPersonComponent implements OnInit {
       type: this.type,
       benefitCost: this.determineCost(this.name, this.type)
     }
-    console.log(newPerson);
-    //this.onAddPerson.emit(newPerson);
+
+    this.onAddPerson.emit(newPerson);
 
     this.name = "";
     this.type = PersonType.employee;
@@ -40,7 +40,7 @@ export class AddPersonComponent implements OnInit {
 
   determineCost(name: String, type: PersonType): number {
     this.hasDiscount = name.startsWith("A");
-    switch (type) {
+    switch (+type) {
       case PersonType.employee:
         this.cost = 1000;
         break;

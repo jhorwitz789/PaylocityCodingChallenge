@@ -13,10 +13,22 @@
       "type": 1
     },
     {
-      "id": 3,
+      "name": "Amadeus Cho",
+      "type": "0",
+      "benefitCost": 900,
+      "id": 4
+    },
+    {
+      "name": "Hank Pym",
+      "type": "1",
+      "benefitCost": 500,
+      "id": 5
+    },
+    {
       "name": "Anthony Stark",
+      "type": "1",
       "benefitCost": 450,
-      "type": 1
+      "id": 6
     }
   ]
 }
