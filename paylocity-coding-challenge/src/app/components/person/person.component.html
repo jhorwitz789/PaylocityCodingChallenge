@@ -1,4 +1,10 @@
 <div class="person">
-    <h3>{{person.name}} <fa-icon (click)="onDelete(person)" [ngStyle]="{'color': 'red'}" [icon]="faTimes"></fa-icon></h3>
-    <p>Benefit cost per year: ${{person.benefitCost}}</p>
+    <h3>{{person.name}} 
+        <fa-icon 
+            (click)="onDelete(person)" 
+            [ngStyle]="{'color': 'red'}" 
+            [icon]="faTimes">
+        </fa-icon>
+    </h3>
+    <p>Benefit cost per year: {{formattedBenefitCost}}</p>
 </div>

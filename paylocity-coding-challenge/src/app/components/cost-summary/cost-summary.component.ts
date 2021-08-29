@@ -10,7 +10,7 @@ import { Person } from "../../Person";
 export class CostSummaryComponent implements OnInit {
   people: Person[] = [];
   deductionAmount: number = 0;
-  netSalary: number = 52000;
+  netSalary: number = 52000;//base salary for all employees
   formattedDeduction!: string;
   formattedSalary!: string;
 

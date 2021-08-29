@@ -11,10 +11,18 @@ export class PersonComponent implements OnInit {
   @Input() person!: Person
   @Output() onDeletePerson: EventEmitter<Person> = new EventEmitter()
   faTimes = faTimes;
+  formattedBenefitCost!: string;
+
+  formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
 
   constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.formattedBenefitCost = this.formatter.format(this.person.benefitCost);
+  }
 
   onDelete(person: Person) {
     this.onDeletePerson.emit(person);
