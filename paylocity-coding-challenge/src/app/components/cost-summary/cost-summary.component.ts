@@ -1,13 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PersonService } from "../../services/person.service"
 import { Person } from "../../Person";
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cost-summary',
   templateUrl: './cost-summary.component.html',
   styleUrls: ['./cost-summary.component.css']
 })
-export class CostSummaryComponent implements OnInit {
+export class CostSummaryComponent implements OnDestroy, OnInit {
+  private readonly destroy$ = new Subject();
   people: Person[] = [];
   deductionAmount: number = 0;
   netSalary: number = 52000;//base salary for all employees
@@ -28,7 +31,7 @@ export class CostSummaryComponent implements OnInit {
   calculateAmounts() {
     this.deductionAmount = 0;
     this.netSalary = 52000;
-    this.personService.getPeople().subscribe((people) => {
+    this.personService.getPeople().pipe(takeUntil(this.destroy$)).subscribe((people) => {
       for (let person of people){
         this.deductionAmount += person.benefitCost;
       }
@@ -38,5 +41,10 @@ export class CostSummaryComponent implements OnInit {
       this.formattedDeduction = this.formatter.format(this.deductionAmount);
       this.formattedSalary = this.formatter.format(this.netSalary);
     });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
